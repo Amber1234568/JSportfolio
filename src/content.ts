@@ -88,6 +88,9 @@ export interface SiteContent {
     email: string;
     github: string;
     linkedin: string;
+    linkedinUrl: string;
+    scholar: string;
+    scholarUrl: string;
     note: string;
   };
   projects: {
@@ -130,18 +133,33 @@ export const content: Record<Lang, SiteContent> = {
         role: 'AI Product / PM Intern',
         company: 'SupStat',
         location: 'Remote',
-        dates: '2024 – Present',
+        dates: 'Jul 2025 – Sep 2025',
         bullets: [
           'Designed and shipped a 3-stage AI valuation pipeline for dental clinic M&A—from data ingestion to one-click report to grounded chatbot Q&A.',
           'Owned the full product arc: problem framing, UX flows, data transformation layer, RAG integration, and frontend.',
+          'Reduced analyst report-prep time from ~2 days to under 10 minutes per clinic.',
         ],
       },
       {
-        role: '[Your Previous Role]',
-        company: '[Company]',
-        location: '[Location]',
-        dates: '[Dates]',
-        bullets: [],
+        role: 'Data Analyst Intern',
+        company: 'Haier',
+        location: 'Qingdao, China',
+        dates: 'Jun 2025 – Jul 2025',
+        bullets: [
+          'Built dashboards tracking appliance sales and after-sales KPIs across 300+ SKUs using SQL and Tableau.',
+          'Identified a regional warranty-claim spike tied to a single supplier batch; findings fed into a supplier review that reduced returns by 18%.',
+        ],
+      },
+      {
+        role: 'Research Analyst',
+        company: 'Icahn School of Medicine at Mount Sinai',
+        location: 'New York, NY',
+        dates: 'May 2022 – Aug 2024',
+        bullets: [
+          'Analyzed EHR-linked genomic datasets (N > 50,000) to study genetic risk factors for cardiovascular outcomes.',
+          'Automated a QC pipeline in R that cut data-cleaning time by 40%, enabling faster iteration on GWAS models.',
+          'Co-authored a conference abstract presented at AHA 2023.',
+        ],
       },
     ],
     skills: [
@@ -164,7 +182,10 @@ export const content: Record<Lang, SiteContent> = {
     contact: {
       email: 'j2shao@ucsd.edu',
       github: 'Amber1234568',
-      linkedin: 'LinkedIn (coming soon)',
+      linkedin: 'LinkedIn ↗',
+      linkedinUrl: 'https://www.linkedin.com/in/jingcheng-amber-shao-a55483230/',
+      scholar: 'Google Scholar ↗',
+      scholarUrl: 'https://scholar.google.com/citations?user=ZvNy9pgAAAAJ&hl=en',
       note: 'Open to AI PM internship opportunities. Feel free to reach out.',
     },
     projects: {
@@ -346,18 +367,33 @@ export const content: Record<Lang, SiteContent> = {
         role: 'AI 产品 / PM 实习生',
         company: 'SupStat',
         location: '远程',
-        dates: '2024 – 至今',
+        dates: '2025年7月 – 2025年9月',
         bullets: [
           '以 PM + 工程师身份，设计并交付了面向牙科诊所并购的三段式 AI 估值 pipeline——从数据接入、一键报告到有依据的 Chatbot 追问。',
           '负责完整产品链路：问题定义、UX 流程、数据转换层、RAG 集成与前端实现。',
+          '将分析师单份报告准备时间从约 2 天压缩至 10 分钟以内。',
         ],
       },
       {
-        role: '[上一段经历]',
-        company: '[公司]',
-        location: '[地点]',
-        dates: '[日期]',
-        bullets: [],
+        role: '数据分析实习生',
+        company: '海尔集团',
+        location: '青岛',
+        dates: '2025年6月 – 2025年7月',
+        bullets: [
+          '使用 SQL 和 Tableau 搭建仪表盘，追踪 300+ SKU 的家电销售及售后 KPI。',
+          '定位到某区域保修索赔激增与单一供应商批次相关；分析结论推动供应商复审，退货率下降 18%。',
+        ],
+      },
+      {
+        role: '研究分析师',
+        company: '西奈山伊坎医学院',
+        location: '纽约',
+        dates: '2022年5月 – 2024年8月',
+        bullets: [
+          '分析 EHR 关联基因组数据集（N > 50,000），研究心血管结局的遗传风险因素。',
+          '用 R 自动化 QC pipeline，数据清洗时间缩短 40%，加速 GWAS 模型迭代。',
+          '合著会议摘要，于 AHA 2023 年会报告。',
+        ],
       },
     ],
     skills: [
@@ -380,7 +416,10 @@ export const content: Record<Lang, SiteContent> = {
     contact: {
       email: 'j2shao@ucsd.edu',
       github: 'Amber1234568',
-      linkedin: 'LinkedIn（待更新）',
+      linkedin: 'LinkedIn ↗',
+      linkedinUrl: 'https://www.linkedin.com/in/jingcheng-amber-shao-a55483230/',
+      scholar: 'Google Scholar ↗',
+      scholarUrl: 'https://scholar.google.com/citations?user=ZvNy9pgAAAAJ&hl=en',
       note: '欢迎 AI PM 实习相关机会，随时联系。',
     },
     projects: {

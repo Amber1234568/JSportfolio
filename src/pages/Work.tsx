@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../hooks/useLanguage';
+import { useLanguage } from '../context/LanguageContext';
 import { content } from '../content';
 import { FadeUp } from '../components/FadeUp';
 import { Footer } from '../components/Footer';
@@ -97,7 +97,23 @@ export function Work() {
                   GitHub ↗
                 </a>
                 <span className="text-gray-200" aria-hidden>·</span>
-                <span className="text-gray-400">{c.contact.linkedin}</span>
+                <a
+                  href={c.contact.linkedinUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-gray-500 hover:text-gray-900 transition-colors"
+                >
+                  {c.contact.linkedin}
+                </a>
+                <span className="text-gray-200" aria-hidden>·</span>
+                <a
+                  href={c.contact.scholarUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-gray-500 hover:text-gray-900 transition-colors"
+                >
+                  {c.contact.scholar}
+                </a>
                 <span className="text-gray-200" aria-hidden>·</span>
                 <a
                   href={`mailto:${c.contact.email}`}
@@ -300,7 +316,23 @@ export function Work() {
                 GitHub ↗
               </a>
               <span className="text-gray-200" aria-hidden>·</span>
-              <span className="text-gray-400">{c.contact.linkedin}</span>
+              <a
+                href={c.contact.linkedinUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-gray-500 hover:text-gray-900 transition-colors"
+              >
+                {c.contact.linkedin}
+              </a>
+              <span className="text-gray-200" aria-hidden>·</span>
+              <a
+                href={c.contact.scholarUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-gray-500 hover:text-gray-900 transition-colors"
+              >
+                {c.contact.scholar}
+              </a>
             </div>
           </section>
         </FadeUp>
