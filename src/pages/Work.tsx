@@ -208,6 +208,19 @@ export function Work() {
                       >
                         {wc.viewCase} →
                       </Link>
+                      {proj.demoUrl && (
+                        <>
+                          <span className="text-gray-200" aria-hidden>·</span>
+                          <a
+                            href={proj.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-400 hover:text-gray-900 transition-colors"
+                          >
+                            Demo ↗
+                          </a>
+                        </>
+                      )}
                       {proj.githubUrl && (
                         <>
                           <span className="text-gray-200" aria-hidden>·</span>
@@ -219,12 +232,6 @@ export function Work() {
                           >
                             {wc.viewGitHub}
                           </a>
-                        </>
-                      )}
-                      {!proj.githubUrl && key === 'adhd' && (
-                        <>
-                          <span className="text-gray-200" aria-hidden>·</span>
-                          <span className="text-gray-300">{wc.comingSoon}</span>
                         </>
                       )}
                       {proj.figmaUrl && (

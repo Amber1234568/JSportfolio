@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "capture:adhd": "npx playwright install --with-deps chromium && npx tsx scripts/capture_screenshots.ts",
     "deploy:ghpages": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
@@ -29,6 +30,8 @@
     "@testing-library/react": "^14.3.1",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/user-event": "^14.5.2",
-    "jsdom": "^24.1.0"
+    "jsdom": "^24.1.0",
+    "playwright": "^1.44.0",
+    "tsx": "^4.11.0"
   }
 }

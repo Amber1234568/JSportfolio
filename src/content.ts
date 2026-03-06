@@ -52,6 +52,28 @@ export interface CaseStudyProject {
   links: ProjectLink[];
   githubUrl?: string;
   figmaUrl?: string;
+  demoUrl?: string;
+}
+
+export interface AdhdProblem { label: string; body: string; }
+export interface AdhdPrinciple { label: string; body: string; }
+export interface AdhdFlowStage { label: string; body: string; }
+export interface AdhdScreenshot { file: string; caption: string; }
+export interface AdhdDecision { decision: string; rationale: string; tradeoff: string; }
+export interface AdhdMetric { label: string; description: string; }
+
+export interface AdhdCaseContent {
+  tldr: string[];
+  background: string;
+  problems: AdhdProblem[];
+  principles: AdhdPrinciple[];
+  flowStages: AdhdFlowStage[];
+  screenshots: AdhdScreenshot[];
+  decisions: AdhdDecision[];
+  metricsNote: string;
+  metrics: AdhdMetric[];
+  builderBullets: string[];
+  nextSteps: string[];
 }
 
 export interface SiteContent {
@@ -98,6 +120,7 @@ export interface SiteContent {
     adhd: CaseStudyProject;
     studypal: CaseStudyProject;
   };
+  adhdCase: AdhdCaseContent;
 }
 
 export const content: Record<Lang, SiteContent> = {
@@ -279,7 +302,12 @@ export const content: Record<Lang, SiteContent> = {
           'Calendar integration to auto-suggest focus windows',
           'Therapist/coach sharing mode',
         ],
-        links: [],
+        links: [
+          { label: 'Demo', url: 'https://x-company-pink.vercel.app/' },
+          { label: 'GitHub', url: 'https://github.com/Amber1234568/XCompany' },
+        ],
+        githubUrl: 'https://github.com/Amber1234568/XCompany',
+        demoUrl: 'https://x-company-pink.vercel.app/',
       },
       studypal: {
         title: 'StudyPal',
@@ -332,6 +360,102 @@ export const content: Record<Lang, SiteContent> = {
         figmaUrl:
           'https://www.figma.com/design/wvP7GMV3Z0voaZxr0rIL1z/%E5%BE%88%E7%89%9B%E7%9A%84project?node-id=0-1&t=3Wt1kPQChsqXsWnQ-1',
       },
+    },
+    adhdCase: {
+      tldr: [
+        'Problem: ADHD users struggle with activation friction (starting) and punitive re-entry (returning after distraction).',
+        'Solution: guided micro-step templates, kind re-entry with distraction logging, and fully editable personalized routines.',
+        'Outcome: a working prototype that turns every interrupted session into insight, not failure.',
+      ],
+      background:
+        "Forest and Pomodoro timers help a lot of people, but they assume you can activate on demand. For ADHD users, the hardest part isn't sustaining a 25-minute block—it's deciding to start, and getting back on track when something pulls your attention away. Most apps don't distinguish between 'didn't start' and 'gave up'. Both feel like failure. I built this to explore what a focus tool designed around ADHD's actual failure modes would feel like.",
+      problems: [
+        {
+          label: 'Activation friction',
+          body: "Opening a blank timer doesn't help when your brain won't start. A prompt to 'focus' is asking for the exact effort the ADHD brain actively avoids. The activation energy required to begin is often the whole obstacle.",
+        },
+        {
+          label: 'Punitive failure states',
+          body: "Most apps track streaks and punish breaks. Forest kills your tree when you switch away. This shame response is the wrong intervention—it increases the likelihood of abandoning the session entirely rather than reducing distraction.",
+        },
+        {
+          label: 'One-size-fits-all routines',
+          body: "What works for deep writing may fail for email triage. What works Tuesday morning may fail Friday afternoon. Rigid templates don't account for this heterogeneity, and most apps offer no flexibility.",
+        },
+      ],
+      principles: [
+        {
+          label: 'Start small, reduce activation energy',
+          body: 'Guided micro-step templates replace the blank prompt. Breaking a task into tiny, concrete steps—"open doc → read last paragraph → write one sentence"—dramatically lowers the cognitive barrier to begin.',
+        },
+        {
+          label: 'Be kind on re-entry',
+          body: "When distraction happens, the app asks 'what pulled you away?' without judgment. Returning to focus triggers a small positive signal—celebrating the return, not punishing the interruption. Distraction is logged as data, not shame.",
+        },
+        {
+          label: 'Personalization over prescription',
+          body: 'Users can edit every micro-step, adjust timing, choose ambient sounds, and save named routines. The app adapts to the person, not the other way around. Good defaults exist; customization is always available.',
+        },
+      ],
+      flowStages: [
+        { label: 'Template', body: 'Pick a task type. Get a guided micro-step sequence tailored to it.' },
+        { label: 'Focus', body: 'A timed session with ambient sound, visible micro-steps, and a soft progress indicator.' },
+        { label: 'Distraction', body: 'Attention breaks? Log what pulled you away. No shame, just honest data.' },
+        { label: 'Re-entry', body: 'Return is celebrated with a small warm signal. The session picks up where you left off.' },
+        { label: 'Insights', body: 'Over time, distraction patterns surface as weekly insights and habit signals.' },
+      ],
+      screenshots: [
+        { file: 'images/adhd-hero.png', caption: 'Landing screen — first impression and session start' },
+        { file: 'images/adhd-template.png', caption: 'Template selection — pick your task type and session structure' },
+        { file: 'images/adhd-focus.png', caption: 'Active focus session — timer, micro-steps, and ambient sound' },
+        { file: 'images/adhd-distraction-log.png', caption: 'Distraction log — "what pulled you away?" without judgment' },
+        { file: 'images/adhd-reentry.png', caption: 'Re-entry screen — warm return after a distraction' },
+        { file: 'images/adhd-insights.png', caption: 'Insights view — distraction patterns and session history' },
+        { file: 'images/adhd-settings.png', caption: 'Settings — edit steps, timing, sounds, and save custom routines' },
+      ],
+      decisions: [
+        {
+          decision: 'Guided templates vs. blank goal input',
+          rationale: 'Most ADHD users need scaffolding, not a blank canvas. A blank input requires the activation energy the app is specifically designed to reduce.',
+          tradeoff: 'Templates add onboarding friction and may feel prescriptive for power users. Mitigated by making every template editable.',
+        },
+        {
+          decision: 'Positive re-entry vs. punishing distraction',
+          rationale: 'Shame loops are documented to increase task abandonment. Rewarding the return shifts the mental model from "I failed" to "I came back"—and changes what the app measures.',
+          tradeoff: 'Risks feeling gamified or patronizing. Tone matters; this needs A/B testing with actual ADHD users.',
+        },
+        {
+          decision: 'Logging distraction reasons as data',
+          rationale: 'Patterns in distraction reasons (hunger, notifications, boredom, noise) can generate actionable habit signals. Invisible data is wasted signal.',
+          tradeoff: 'Requires consistent and honest user input to generate meaningful insight. Cold-start problem until enough sessions accumulate.',
+        },
+        {
+          decision: 'Fully editable routines (steps, timing, sounds)',
+          rationale: 'ADHD is heterogeneous. Flexibility is a core requirement, not a nice-to-have. The same routine that works Tuesday morning may fail Friday afternoon.',
+          tradeoff: 'Editing adds UI complexity. Defaults must be strong enough that most users never need to customize.',
+        },
+      ],
+      metricsNote: 'These are planned metrics for MVP iteration — not yet instrumented.',
+      metrics: [
+        { label: 'Activation rate', description: '% of app opens that result in a session start' },
+        { label: 'Completion rate', description: '% of sessions that reach the planned end time without abandonment' },
+        { label: 'Re-entry count', description: 'How often users return after a distraction log within the same session' },
+        { label: 'Distraction reason dist.', description: 'Which reason categories appear most (social media, noise, hunger, boredom…)' },
+        { label: 'D1 / D7 retention', description: 'Return next day / within 7 days — proxy for habit formation' },
+      ],
+      builderBullets: [
+        'Built core session state machine: template selection → active focus → distraction → re-entry',
+        'Implemented editable micro-step templates with local persistence',
+        'Designed and built the re-entry UX: distraction reason log + warm return animation',
+        'Basic insights view with session history and distraction reason breakdown',
+        'Settings page: ambient sound selection, step timing controls, routine naming and saving',
+      ],
+      nextSteps: [
+        'A/B test template lengths and copy (3 steps vs. 5; prescriptive vs. open-ended wording)',
+        'Add personalization onboarding: build your first routine in 3 steps',
+        'Weekly insights: distraction reason heatmap and best focus windows',
+        'Export / share routine templates with a link',
+      ],
     },
   },
 
@@ -513,7 +637,12 @@ export const content: Record<Lang, SiteContent> = {
           '日历集成，自动建议专注时段',
           '治疗师/教练共享模式',
         ],
-        links: [],
+        links: [
+          { label: 'Demo', url: 'https://x-company-pink.vercel.app/' },
+          { label: 'GitHub', url: 'https://github.com/Amber1234568/XCompany' },
+        ],
+        githubUrl: 'https://github.com/Amber1234568/XCompany',
+        demoUrl: 'https://x-company-pink.vercel.app/',
       },
       studypal: {
         title: 'StudyPal',
@@ -566,6 +695,102 @@ export const content: Record<Lang, SiteContent> = {
         figmaUrl:
           'https://www.figma.com/design/wvP7GMV3Z0voaZxr0rIL1z/%E5%BE%88%E7%89%9B%E7%9A%84project?node-id=0-1&t=3Wt1kPQChsqXsWnQ-1',
       },
+    },
+    adhdCase: {
+      tldr: [
+        '问题：ADHD 用户面临激活阻力（难以开始）和惩罚性的回返体验（分心后难以再投入）。',
+        '方案：引导式微步骤模板 + 温和的重新投入体验 + 完全可编辑的个性化流程。',
+        '成果：一个将每次中断变为洞察而非失败的可运行原型。',
+      ],
+      background:
+        'Forest 和番茄工作法对很多人有效，但它们的前提是你能按需激活专注。对 ADHD 用户来说，最难的不是坚持 25 分钟——而是决定开始，以及在注意力被打断后重新回来。大多数应用不区分"没有开始"和"放弃了"，两者都像是失败。我做这个项目是想探索：一个真正围绕 ADHD 失败模式设计的专注工具会是什么样的。',
+      problems: [
+        {
+          label: '激活阻力',
+          body: '面对空白计时器，大脑就是启动不了。"开始专注"这个提示本身就需要 ADHD 大脑最难产生的那种意志力。激活门槛往往就是全部障碍。',
+        },
+        {
+          label: '惩罚性失败状态',
+          body: '大多数应用追踪连击并惩罚中断。Forest 里你的树会死掉。这种羞耻感是错误的干预——它反而增大了彻底放弃的概率，而非减少分心。',
+        },
+        {
+          label: '千篇一律的流程',
+          body: '深度写作需要的方式与处理邮件不同。周二早上有效的方法周五下午可能失效。刚性模板无法适应这种个体差异，大多数应用也不提供灵活性。',
+        },
+      ],
+      principles: [
+        {
+          label: '从小开始，降低激活能量',
+          body: '引导式微步骤模板取代空白提示。将任务拆成"打开文档 → 读最后一段 → 写一句话"，大幅降低认知启动门槛。',
+        },
+        {
+          label: '温和地拉回',
+          body: '分心发生时，应用无评判地询问"是什么打断了你？"重新投入触发积极信号——庆祝回来，而非惩罚中断。分心被记录为数据，而非罪感。',
+        },
+        {
+          label: '个性化优于规定',
+          body: '用户可以编辑每一个微步骤、调整时间、选择背景音效并保存命名流程。应用适应人，而不是人适应应用。好的默认值存在，定制化始终可用。',
+        },
+      ],
+      flowStages: [
+        { label: '选择模板', body: '选择任务类型，获得定制的微步骤引导序列。' },
+        { label: '专注', body: '带计时器、背景音和可见微步骤的专注会话。' },
+        { label: '分心', body: '注意力中断？记录打扰你的原因。没有评判，只有数据。' },
+        { label: '重新投入', body: '回来被温暖庆祝。会话从你离开的地方继续。' },
+        { label: '洞察', body: '随时间积累，分心规律浮现为每周习惯信号。' },
+      ],
+      screenshots: [
+        { file: 'images/adhd-hero.png', caption: '首屏 — 第一印象与会话入口' },
+        { file: 'images/adhd-template.png', caption: '模板选择 — 选择任务类型和会话结构' },
+        { file: 'images/adhd-focus.png', caption: '专注会话 — 计时器、微步骤与背景音' },
+        { file: 'images/adhd-distraction-log.png', caption: '分心记录 — 无评判地询问"是什么打断了你？"' },
+        { file: 'images/adhd-reentry.png', caption: '重新投入 — 温暖的回来体验' },
+        { file: 'images/adhd-insights.png', caption: '洞察视图 — 分心规律与会话历史' },
+        { file: 'images/adhd-settings.png', caption: '设置 — 编辑步骤、时间、音效并保存流程' },
+      ],
+      decisions: [
+        {
+          decision: '引导模板 vs. 空白目标输入',
+          rationale: '大多数 ADHD 用户需要脚手架，而非空白画布。空白输入需要的激活能量正是应用要降低的。',
+          tradeoff: '模板增加引导摩擦，对高级用户可能感觉过于规定。通过让每个模板可编辑来缓解。',
+        },
+        {
+          decision: '积极回来体验 vs. 惩罚分心',
+          rationale: '羞耻循环被记录为增加任务放弃率。奖励回来将心理模型从"我失败了"转变为"我回来了"，并改变了应用的测量维度。',
+          tradeoff: '可能感觉游戏化或居高临下。语气很重要，需要与真实 ADHD 用户进行 A/B 测试。',
+        },
+        {
+          decision: '将分心原因记录为数据',
+          rationale: '分心原因的规律（饥饿、通知、无聊、噪音）可以产生可操作的习惯信号。不可见的数据是浪费的信号。',
+          tradeoff: '需要用户持续且诚实地输入才能产生有意义的洞察。在积累足够会话前存在冷启动问题。',
+        },
+        {
+          decision: '完全可编辑的流程（步骤、时间、音效）',
+          rationale: 'ADHD 是个体化的。灵活性是核心需求，不是可选项。同一套流程周二早上有效，周五下午可能失效。',
+          tradeoff: '编辑增加界面复杂性。默认值必须足够好，大多数用户无需定制。',
+        },
+      ],
+      metricsNote: '以下为 MVP 迭代的计划指标，尚未接入埋点。',
+      metrics: [
+        { label: '激活率', description: '打开应用后实际开始会话的比例' },
+        { label: '完成率', description: '到达计划结束时间而未放弃的会话比例' },
+        { label: '重返次数', description: '同一会话中分心记录后重新投入的次数' },
+        { label: '分心原因分布', description: '哪类原因出现最多（社交媒体、噪音、饥饿、无聊……）' },
+        { label: 'D1 / D7 留存', description: '次日 / 7 天内回来 — 作为习惯养成的代理指标' },
+      ],
+      builderBullets: [
+        '实现核心会话状态机：模板选择 → 专注 → 分心 → 重新投入',
+        '实现可编辑微步骤模板，带本地持久化',
+        '设计并实现重新投入 UX：分心原因记录 + 温暖回来动画',
+        '基础洞察视图：会话历史和分心原因分解',
+        '设置页：背景音效选择、步骤时间控制、流程命名与保存',
+      ],
+      nextSteps: [
+        'A/B 测试模板长度和文案（3 步 vs. 5 步；规定式 vs. 开放式措辞）',
+        '添加个性化引导：三步构建你的第一个专注流程',
+        '每周洞察：分心原因热力图和最佳专注时段',
+        '导出/分享流程模板链接',
+      ],
     },
   },
 };
