@@ -358,12 +358,12 @@ export const content: Record<Lang, SiteContent> = {
         ],
         links: [
           {
-            label: 'Figma',
-            url: 'https://www.figma.com/design/wvP7GMV3Z0voaZxr0rIL1z/%E5%BE%88%E7%89%9B%E7%9A%84project?node-id=0-1&t=3Wt1kPQChsqXsWnQ-1',
+            label: 'Prototype (Figma)',
+            url: 'https://www.figma.com/proto/wvP7GMV3Z0voaZxr0rIL1z/%E5%BE%88%E7%89%9B%E7%9A%84project?node-id=3-20&t=8pgWwOA1gzqsmDpo-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A20',
           },
         ],
         figmaUrl:
-          'https://www.figma.com/design/wvP7GMV3Z0voaZxr0rIL1z/%E5%BE%88%E7%89%9B%E7%9A%84project?node-id=0-1&t=3Wt1kPQChsqXsWnQ-1',
+          'https://www.figma.com/proto/wvP7GMV3Z0voaZxr0rIL1z/%E5%BE%88%E7%89%9B%E7%9A%84project?node-id=3-20&t=8pgWwOA1gzqsmDpo-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A20',
       },
     },
     adhdCase: {
@@ -698,12 +698,12 @@ export const content: Record<Lang, SiteContent> = {
         ],
         links: [
           {
-            label: 'Figma',
-            url: 'https://www.figma.com/design/wvP7GMV3Z0voaZxr0rIL1z/%E5%BE%88%E7%89%9B%E7%9A%84project?node-id=0-1&t=3Wt1kPQChsqXsWnQ-1',
+            label: '原型（Figma）',
+            url: 'https://www.figma.com/proto/wvP7GMV3Z0voaZxr0rIL1z/%E5%BE%88%E7%89%9B%E7%9A%84project?node-id=3-20&t=8pgWwOA1gzqsmDpo-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A20',
           },
         ],
         figmaUrl:
-          'https://www.figma.com/design/wvP7GMV3Z0voaZxr0rIL1z/%E5%BE%88%E7%89%9B%E7%9A%84project?node-id=0-1&t=3Wt1kPQChsqXsWnQ-1',
+          'https://www.figma.com/proto/wvP7GMV3Z0voaZxr0rIL1z/%E5%BE%88%E7%89%9B%E7%9A%84project?node-id=3-20&t=8pgWwOA1gzqsmDpo-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A20',
       },
     },
     adhdCase: {
