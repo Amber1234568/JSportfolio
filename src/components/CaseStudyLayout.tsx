@@ -36,7 +36,7 @@ function ScreenImage({ src, caption }: { src: string; caption: string }) {
   const [err, setErr] = useState(false);
   return (
     <figure className="m-0">
-      <div className="w-full aspect-[9/16] rounded-xl border border-gray-100 bg-gray-50 overflow-hidden">
+      <div className="w-full h-[420px] sm:h-[520px] rounded-2xl border border-gray-100 bg-gray-50 overflow-hidden">
         {err ? (
           <div className="w-full h-full flex flex-col items-center justify-center gap-2 px-4">
             <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,14 +50,26 @@ function ScreenImage({ src, caption }: { src: string; caption: string }) {
             src={src}
             alt={caption}
             onError={() => setErr(true)}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover object-top"
             loading="lazy"
           />
         )}
       </div>
-      <figcaption className="text-[12px] text-gray-400 mt-2 leading-snug text-center">
-        {caption}
-      </figcaption>
+      <div className="flex items-start justify-between gap-3 mt-2">
+        <figcaption className="text-[12px] text-gray-400 leading-snug flex-1">
+          {caption}
+        </figcaption>
+        {!err && (
+          <a
+            href={src}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] text-gray-300 hover:text-gray-500 transition-colors whitespace-nowrap flex-shrink-0"
+          >
+            Full size ↗
+          </a>
+        )}
+      </div>
     </figure>
   );
 }
