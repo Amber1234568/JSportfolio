@@ -53,6 +53,7 @@ export interface CaseStudyProject {
   githubUrl?: string;
   figmaUrl?: string;
   demoUrl?: string;
+  screens?: Array<{ file: string; caption: string }>;
 }
 
 export interface AdhdProblem { label: string; body: string; }
@@ -350,6 +351,12 @@ export const content: Record<Lang, SiteContent> = {
           'Live data via Yelp/Google Places API',
           'Occupancy heatmap from crowdsourced check-ins',
           'Study buddy scheduling + in-app messaging',
+        ],
+        screens: [
+          { file: 'images/studypal/01-home.png',    caption: 'Discovery feed with city context, categories, and community posts.' },
+          { file: 'images/studypal/02-list.png',    caption: 'Search results as scannable place cards: rating, price, address, and study-friendly tags.' },
+          { file: 'images/studypal/03-filters.png', caption: 'Task-based filters (price, time window, environment tags) tailored for study/work needs.' },
+          { file: 'images/studypal/04-profile.png', caption: 'Profile hub for posts, collections, and social signals to support community retention.' },
         ],
         links: [
           {
@@ -685,6 +692,12 @@ export const content: Record<Lang, SiteContent> = {
           '接入 Yelp/Google Places API 获取实时数据',
           '基于众包打卡的上座率热力图',
           '学习伙伴排期 + 应用内消息',
+        ],
+        screens: [
+          { file: 'images/studypal/01-home.png',    caption: '发现流：城市 + 分类入口 + 社区内容，帮助用户快速开始探索。' },
+          { file: 'images/studypal/02-list.png',    caption: '结果列表：卡片化信息（评分/人均/地址/学习标签），便于快速筛选。' },
+          { file: 'images/studypal/03-filters.png', caption: '任务导向筛选：价格/时间段/环境标签，围绕学习工作场景设计。' },
+          { file: 'images/studypal/04-profile.png', caption: '个人中心：发帖/收藏/社交信息入口，支撑社群与粘性。' },
         ],
         links: [
           {

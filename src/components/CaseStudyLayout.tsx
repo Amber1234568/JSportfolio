@@ -32,6 +32,36 @@ function ArtifactImage({ src, alt, label }: { src: string; alt: string; label: s
   );
 }
 
+function ScreenImage({ src, caption }: { src: string; caption: string }) {
+  const [err, setErr] = useState(false);
+  return (
+    <figure className="m-0">
+      <div className="w-full aspect-[9/16] rounded-xl border border-gray-100 bg-gray-50 overflow-hidden">
+        {err ? (
+          <div className="w-full h-full flex flex-col items-center justify-center gap-2 px-4">
+            <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2}
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 9l4-4 4 4 3-3 4 4" />
+            </svg>
+            <span className="text-[11px] text-gray-300 font-mono text-center">{src.split('/').pop()}</span>
+          </div>
+        ) : (
+          <img
+            src={src}
+            alt={caption}
+            onError={() => setErr(true)}
+            className="w-full h-full object-contain"
+            loading="lazy"
+          />
+        )}
+      </div>
+      <figcaption className="text-[12px] text-gray-400 mt-2 leading-snug text-center">
+        {caption}
+      </figcaption>
+    </figure>
+  );
+}
+
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gray-400 mb-5 select-none">
@@ -65,6 +95,7 @@ export function CaseStudyLayout({ project }: Props) {
     background: lang === 'en' ? 'Background' : '背景',
     problem: lang === 'en' ? 'Problem' : '问题',
     approach: lang === 'en' ? 'Approach' : '方案',
+    screens: lang === 'en' ? 'Screens' : '关键界面',
     artifacts: lang === 'en' ? 'Artifacts' : '产出',
     next: lang === 'en' ? "What I'd do next" : '下一步',
     back: lang === 'en' ? 'Work' : '作品集',
@@ -162,6 +193,23 @@ export function CaseStudyLayout({ project }: Props) {
           </div>
         </section>
       </FadeUp>
+
+      {/* ── Screens ── */}
+      {project.screens && project.screens.length > 0 && (
+        <>
+          <Divider />
+          <FadeUp delay={88}>
+            <section>
+              <SectionLabel>{L.screens}</SectionLabel>
+              <div className="grid sm:grid-cols-2 gap-5">
+                {project.screens.map((s) => (
+                  <ScreenImage key={s.file} src={`${base}${s.file}`} caption={s.caption} />
+                ))}
+              </div>
+            </section>
+          </FadeUp>
+        </>
+      )}
 
       {/* ── Artifacts ── */}
       {project.artifacts.length > 0 && (
