@@ -54,6 +54,7 @@ export interface CaseStudyProject {
   figmaUrl?: string;
   demoUrl?: string;
   screens?: Array<{ file: string; caption: string }>;
+  whyArchitecture?: { title: string; bullets: string[] };
 }
 
 export interface AdhdProblem { label: string; body: string; }
@@ -246,18 +247,35 @@ export const content: Record<Lang, SiteContent> = {
             body: "A chatbot grounded in the generated report and the source JSON lets clients ask follow-up questions without scheduling a call. Prompt boundaries prevent hallucination beyond the report's scope. Structured tables and visuals are returned where applicable. On the roadmap: natural-language-driven report edits directly through chat.",
           },
         ],
-        artifacts: [
-          { label: 'Pipeline architecture', file: 'images/daplink-pipeline.png' },
-          { label: 'Structured JSON example', file: 'images/daplink-json.png' },
-        ],
+        artifacts: [],
         nextSteps: [
           'NL-driven report edits via chatbot',
           'Confidence scoring on RAG-retrieved benchmark data',
           'Multi-clinic comparison view',
           'Branded PDF export',
         ],
-        links: [{ label: 'GitHub', url: 'https://github.com/Amber1234568/DaplinkDemo' }],
+        links: [
+          { label: 'GitHub', url: 'https://github.com/Amber1234568/DaplinkDemo' },
+          { label: 'Live Demo', url: 'https://daplinkdemo-dyae4taebkrtfdmmlrefgp.streamlit.app/' },
+        ],
         githubUrl: 'https://github.com/Amber1234568/DaplinkDemo',
+        demoUrl: 'https://daplinkdemo-dyae4taebkrtfdmmlrefgp.streamlit.app/',
+        screens: [
+          { file: 'images/daplink/01-login.png',           caption: 'Simple entry point for non-technical users to access the valuation workflow.' },
+          { file: 'images/daplink/02-upload.png',          caption: 'Upload raw financial and operational files across multiple years in a guided workflow.' },
+          { file: 'images/daplink/03-data-preview.png',    caption: 'Preview normalized and structured data before generation, improving trust and auditability.' },
+          { file: 'images/daplink/04-generate-report.png', caption: 'One-click report generation powered by valuation logic and retrieval-augmented context.' },
+          { file: 'images/daplink/05-report-preview.png',  caption: 'Investor-ready report output with clear narrative built on validated intermediate values.' },
+          { file: 'images/daplink/06-qa-chat.png',         caption: 'Interactive Q&A lets users dig deeper into the report instead of stopping at a static document.' },
+        ],
+        whyArchitecture: {
+          title: 'Why this architecture',
+          bullets: [
+            'Deterministic preprocessing first — every number is traceable before an LLM ever sees it, which is a hard requirement in financial due diligence.',
+            'Structured JSON keeps context size small and preserves validated intermediate values. The LLM reads a clean schema, not raw spreadsheet noise.',
+            'LLMs are used for what they\'re good at: generating coherent narrative and answering bounded follow-up questions — not for financial arithmetic.',
+          ],
+        },
       },
       adhd: {
         title: 'ADHD Focus Companion',
@@ -586,18 +604,35 @@ export const content: Record<Lang, SiteContent> = {
             body: 'Chatbot 基于已生成的报告和源 JSON 回答追问，无需预约会议。Prompt 边界防止回答超出报告范围。结构化表格和图表按需返回。路线图：通过对话直接驱动报告修改。',
           },
         ],
-        artifacts: [
-          { label: 'Pipeline 架构图', file: 'images/daplink-pipeline.png' },
-          { label: '结构化 JSON 示例', file: 'images/daplink-json.png' },
-        ],
+        artifacts: [],
         nextSteps: [
           '自然语言驱动报告修改',
           'RAG 检索数据可信度评分',
           '多诊所横向对比视图',
           '品牌 PDF 导出',
         ],
-        links: [{ label: 'GitHub', url: 'https://github.com/Amber1234568/DaplinkDemo' }],
+        links: [
+          { label: 'GitHub', url: 'https://github.com/Amber1234568/DaplinkDemo' },
+          { label: '在线演示', url: 'https://daplinkdemo-dyae4taebkrtfdmmlrefgp.streamlit.app/' },
+        ],
         githubUrl: 'https://github.com/Amber1234568/DaplinkDemo',
+        demoUrl: 'https://daplinkdemo-dyae4taebkrtfdmmlrefgp.streamlit.app/',
+        screens: [
+          { file: 'images/daplink/01-login.png',           caption: '为非技术用户设计的简洁入口，降低估值流程的使用门槛。' },
+          { file: 'images/daplink/02-upload.png',          caption: '按引导流程上传多年的财务与运营原始数据。' },
+          { file: 'images/daplink/03-data-preview.png',    caption: '在生成前预览结构化与规范化后的数据，增强可信度与可追溯性。' },
+          { file: 'images/daplink/04-generate-report.png', caption: '结合估值逻辑与检索增强上下文，实现一键生成报告。' },
+          { file: 'images/daplink/05-report-preview.png',  caption: '基于已验证中间值生成的 investor-ready 报告输出。' },
+          { file: 'images/daplink/06-qa-chat.png',         caption: '交互式问答让用户能围绕报告继续深挖，而不是停留在静态文档。' },
+        ],
+        whyArchitecture: {
+          title: '为什么这样设计',
+          bullets: [
+            '确定性预处理优先——每个数字在 LLM 介入前均可溯源，这是金融尽调场景的硬性要求。',
+            '结构化 JSON 压缩上下文体积，并保留已验证的中间值。LLM 读取的是整洁的 Schema，而非原始电子表格噪声。',
+            'LLM 只做它擅长的事：生成连贯叙述、回答有边界的追问——而不是负责财务运算。',
+          ],
+        },
       },
       adhd: {
         title: 'ADHD 专注伴侣',

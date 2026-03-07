@@ -108,6 +108,7 @@ export function CaseStudyLayout({ project }: Props) {
     problem: lang === 'en' ? 'Problem' : '问题',
     approach: lang === 'en' ? 'Approach' : '方案',
     screens: lang === 'en' ? 'Screens' : '关键界面',
+    whyArch: lang === 'en' ? 'Why this architecture' : '为什么这样设计',
     artifacts: lang === 'en' ? 'Artifacts' : '产出',
     next: lang === 'en' ? "What I'd do next" : '下一步',
     back: lang === 'en' ? 'Work' : '作品集',
@@ -205,6 +206,26 @@ export function CaseStudyLayout({ project }: Props) {
           </div>
         </section>
       </FadeUp>
+
+      {/* ── Why this architecture ── */}
+      {project.whyArchitecture && (
+        <>
+          <Divider />
+          <FadeUp delay={85}>
+            <section>
+              <SectionLabel>{L.whyArch}</SectionLabel>
+              <ul className="space-y-2">
+                {project.whyArchitecture.bullets.map((b, i) => (
+                  <li key={i} className="flex gap-3 text-[14px] text-gray-600 leading-relaxed">
+                    <span className="text-gray-300 flex-shrink-0 mt-0.5 select-none">→</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </FadeUp>
+        </>
+      )}
 
       {/* ── Screens ── */}
       {project.screens && project.screens.length > 0 && (
