@@ -34,7 +34,7 @@ function Screenshot({ shot }: { shot: AdhdScreenshot }) {
   const base = import.meta.env.BASE_URL;
   return (
     <figure className="m-0">
-      <div className="w-full aspect-[9/16] rounded-xl border border-gray-100 bg-gray-50 overflow-hidden">
+      <div className="w-full aspect-[9/16] rounded-xl border border-slate-200 bg-slate-950 overflow-hidden">
         {err ? (
           <div className="w-full h-full flex flex-col items-center justify-center gap-2 px-4">
             <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

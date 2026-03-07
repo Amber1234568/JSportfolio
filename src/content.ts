@@ -343,9 +343,7 @@ export const content: Record<Lang, SiteContent> = {
             body: 'A lightweight community layer lets users share their current spot and study goal. Matching by goal type, subject, and schedule creates serendipitous co-study sessions. This adds a retention mechanic that generic location apps lack and makes the app feel alive.',
           },
         ],
-        artifacts: [
-          { label: 'Figma prototype frames', file: 'images/studypal-frames.png' },
-        ],
+        artifacts: [],
         nextSteps: [
           'Usability testing with students and remote workers',
           'Live data via Yelp/Google Places API',
@@ -685,9 +683,7 @@ export const content: Record<Lang, SiteContent> = {
             body: '轻量社区层允许用户分享当前所在地点和学习目标。按目标类型、学科和时间匹配，创造偶发的共同学习机会。这增加了一个通用地点应用所缺少的留存机制，让应用感觉活着。',
           },
         ],
-        artifacts: [
-          { label: 'Figma 原型帧', file: 'images/studypal-frames.png' },
-        ],
+        artifacts: [],
         nextSteps: [
           '与目标用户（学生、远程工作者）进行可用性测试',
           '接入 Yelp/Google Places API 获取实时数据',
