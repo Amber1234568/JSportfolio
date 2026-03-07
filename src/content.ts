@@ -412,13 +412,14 @@ export const content: Record<Lang, SiteContent> = {
         { label: 'Insights', body: 'Over time, distraction patterns surface as weekly insights and habit signals.' },
       ],
       screenshots: [
-        { file: 'images/adhd-hero.png', caption: 'Landing screen — first impression and session start' },
-        { file: 'images/adhd-template.png', caption: 'Template selection — pick your task type and session structure' },
-        { file: 'images/adhd-focus.png', caption: 'Active focus session — timer, micro-steps, and ambient sound' },
-        { file: 'images/adhd-distraction-log.png', caption: 'Distraction log — "what pulled you away?" without judgment' },
-        { file: 'images/adhd-reentry.png', caption: 'Re-entry screen — warm return after a distraction' },
-        { file: 'images/adhd-insights.png', caption: 'Insights view — distraction patterns and session history' },
-        { file: 'images/adhd-settings.png', caption: 'Settings — edit steps, timing, sounds, and save custom routines' },
+        { file: 'images/adhd/01-library.png',        caption: 'Template library: start with guided routines instead of a blank goal input.' },
+        { file: 'images/adhd/02-overview.png',       caption: 'Routine overview: clear steps + time estimates help users start without overthinking.' },
+        { file: 'images/adhd/03-focus.png',          caption: 'Focus step timer: lightweight guidance during execution, with an easy "return" action.' },
+        { file: 'images/adhd/04-reentry.png',        caption: 'Kind re-entry: reward returning, capture distraction reasons, and offer low-friction options.' },
+        { file: 'images/adhd/05-sound.png',          caption: 'Supportive tools: white noise and step cues to reduce distraction and sustain flow.' },
+        { file: 'images/adhd/06-template-modal.png', caption: 'Context switching: browse templates by scenario (study / chores / sleep) to match intent.' },
+        { file: 'images/adhd/07-edit-flow.png',      caption: 'Personalization: edit steps and timing to fit individual routines and activation needs.' },
+        { file: 'images/adhd/08-edit-step.png',      caption: 'Step-level editing: tune microcopy and durations for the smallest possible next action.' },
       ],
       decisions: [
         {
@@ -753,13 +754,14 @@ export const content: Record<Lang, SiteContent> = {
         { label: '洞察', body: '随时间积累，分心规律浮现为每周习惯信号。' },
       ],
       screenshots: [
-        { file: 'images/adhd-hero.png', caption: '首屏 — 第一印象与会话入口' },
-        { file: 'images/adhd-template.png', caption: '模板选择 — 选择任务类型和会话结构' },
-        { file: 'images/adhd-focus.png', caption: '专注会话 — 计时器、微步骤与背景音' },
-        { file: 'images/adhd-distraction-log.png', caption: '分心记录 — 无评判地询问"是什么打断了你？"' },
-        { file: 'images/adhd-reentry.png', caption: '重新投入 — 温暖的回来体验' },
-        { file: 'images/adhd-insights.png', caption: '洞察视图 — 分心规律与会话历史' },
-        { file: 'images/adhd-settings.png', caption: '设置 — 编辑步骤、时间、音效并保存流程' },
+        { file: 'images/adhd/01-library.png',        caption: '模板库：用"陪伴流程"降低启动成本，而不是让用户从空白目标开始。' },
+        { file: 'images/adhd/02-overview.png',       caption: '流程预览：明确步骤与时长，帮助用户不纠结也能开始。' },
+        { file: 'images/adhd/03-focus.png',          caption: '执行中计时：轻量陪伴，且随时能一键"拉我回来"。' },
+        { file: 'images/adhd/04-reentry.png',        caption: '温和拉回：不惩罚分心，记录原因，并提供"继续/60秒就好/跳过"的低门槛选项。' },
+        { file: 'images/adhd/05-sound.png',          caption: '支持性工具：白噪音与提示音，帮助降低干扰、维持节奏。' },
+        { file: 'images/adhd/06-template-modal.png', caption: '多场景切换：按学习/整理/睡眠等意图选择模板。' },
+        { file: 'images/adhd/07-edit-flow.png',      caption: '个性化编辑：可修改步骤与时长，适配不同人的启动难点与习惯。' },
+        { file: 'images/adhd/08-edit-step.png',      caption: '单步编辑：微调文案与时长，把"下一步"做得足够小。' },
       ],
       decisions: [
         {
