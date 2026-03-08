@@ -54,6 +54,7 @@ export interface CaseStudyProject {
   figmaUrl?: string;
   demoUrl?: string;
   screens?: Array<{ file: string; caption: string }>;
+  screensLandscape?: boolean;
   whyArchitecture?: { title: string; bullets: string[] };
 }
 
@@ -260,6 +261,7 @@ export const content: Record<Lang, SiteContent> = {
         ],
         githubUrl: 'https://github.com/Amber1234568/DaplinkDemo',
         demoUrl: 'https://daplinkdemo-dyae4taebkrtfdmmlrefgp.streamlit.app/',
+        screensLandscape: true,
         screens: [
           { file: 'images/daplink/01-login.png',           caption: 'Simple entry point for non-technical users to access the valuation workflow.' },
           { file: 'images/daplink/02-upload.png',          caption: 'Upload raw financial and operational files across multiple years in a guided workflow.' },
@@ -617,6 +619,7 @@ export const content: Record<Lang, SiteContent> = {
         ],
         githubUrl: 'https://github.com/Amber1234568/DaplinkDemo',
         demoUrl: 'https://daplinkdemo-dyae4taebkrtfdmmlrefgp.streamlit.app/',
+        screensLandscape: true,
         screens: [
           { file: 'images/daplink/01-login.png',           caption: '为非技术用户设计的简洁入口，降低估值流程的使用门槛。' },
           { file: 'images/daplink/02-upload.png',          caption: '按引导流程上传多年的财务与运营原始数据。' },
