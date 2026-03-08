@@ -18,8 +18,8 @@ function ProfilePhoto() {
   const base = import.meta.env.BASE_URL;
   if (err) {
     return (
-      <div className="w-[72px] h-[72px] rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0">
-        <span className="text-gray-400 text-xl font-light select-none">A</span>
+      <div className="w-[200px] h-[200px] rounded-2xl bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0">
+        <span className="text-gray-400 text-4xl font-light select-none">A</span>
       </div>
     );
   }
@@ -28,7 +28,7 @@ function ProfilePhoto() {
       src={`${base}images/profile.jpg`}
       alt="Jingcheng Shao"
       onError={() => setErr(true)}
-      className="w-[72px] h-[72px] rounded-full object-cover border border-gray-200 flex-shrink-0"
+      className="w-[200px] h-[200px] rounded-2xl object-cover border border-gray-200 flex-shrink-0"
     />
   );
 }
@@ -73,12 +73,11 @@ export function Work() {
 
         {/* ── Profile header ── */}
         <FadeUp>
-          <header className="flex items-start gap-5 mb-2">
+          <header className="flex flex-col sm:flex-row items-start gap-6 mb-2">
             <ProfilePhoto />
-            <div className="flex-1 min-w-0 pt-0.5">
+            <div className="flex-1 min-w-0 pt-1">
               <h1 className="text-[17px] font-semibold text-gray-900 leading-snug">{c.name}</h1>
               <p className="text-[14px] text-gray-500 mt-0.5">{c.role}</p>
-              <p className="text-[13px] text-gray-400 mt-0.5">{c.availability}</p>
               <nav className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-3 text-[13px]">
                 <a
                   href={`${base}resume.pdf`}
@@ -124,7 +123,7 @@ export function Work() {
               </nav>
             </div>
           </header>
-          <p className="text-[12px] text-gray-400 mt-4 mb-0 ml-[88px] italic">{wc.subtitle}</p>
+          <p className="text-[12px] text-gray-400 mt-4 mb-0 italic">{wc.subtitle}</p>
         </FadeUp>
 
         <Divider />
@@ -139,47 +138,8 @@ export function Work() {
 
         <Divider />
 
-        {/* ── Experience ── */}
-        <FadeUp delay={70}>
-          <section>
-            <SectionLabel>{wc.sections.experience}</SectionLabel>
-            <div className="space-y-7">
-              {c.experience.map((exp, i) => (
-                <div key={i}>
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1.5">
-                    <div className="flex flex-wrap items-baseline gap-x-1.5">
-                      <span className="font-medium text-[14px] text-gray-900">{exp.role}</span>
-                      <span className="text-gray-300 text-[12px]">·</span>
-                      <span className="text-[14px] text-gray-600">{exp.company}</span>
-                      {exp.location && (
-                        <>
-                          <span className="text-gray-300 text-[12px]">·</span>
-                          <span className="text-[13px] text-gray-400">{exp.location}</span>
-                        </>
-                      )}
-                    </div>
-                    <span className="text-[12px] text-gray-400 sm:flex-shrink-0">{exp.dates}</span>
-                  </div>
-                  {exp.bullets.length > 0 && (
-                    <ul className="space-y-1.5 mt-2">
-                      {exp.bullets.map((b, j) => (
-                        <li key={j} className="flex gap-3 text-[14px] text-gray-600 leading-relaxed">
-                          <span className="text-gray-300 flex-shrink-0 mt-0.5 select-none">—</span>
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </section>
-        </FadeUp>
-
-        <Divider />
-
         {/* ── Projects ── */}
-        <FadeUp delay={90}>
+        <FadeUp delay={70}>
           <section>
             <SectionLabel>{wc.sections.projects}</SectionLabel>
             <div className="space-y-10">
@@ -257,6 +217,45 @@ export function Work() {
 
         <Divider />
 
+        {/* ── Experience ── */}
+        <FadeUp delay={90}>
+          <section>
+            <SectionLabel>{wc.sections.experience}</SectionLabel>
+            <div className="space-y-7">
+              {c.experience.map((exp, i) => (
+                <div key={i}>
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1.5">
+                    <div className="flex flex-wrap items-baseline gap-x-1.5">
+                      <span className="font-medium text-[14px] text-gray-900">{exp.role}</span>
+                      <span className="text-gray-300 text-[12px]">·</span>
+                      <span className="text-[14px] text-gray-600">{exp.company}</span>
+                      {exp.location && (
+                        <>
+                          <span className="text-gray-300 text-[12px]">·</span>
+                          <span className="text-[13px] text-gray-400">{exp.location}</span>
+                        </>
+                      )}
+                    </div>
+                    <span className="text-[12px] text-gray-400 sm:flex-shrink-0">{exp.dates}</span>
+                  </div>
+                  {exp.bullets.length > 0 && (
+                    <ul className="space-y-1.5 mt-2">
+                      {exp.bullets.map((b, j) => (
+                        <li key={j} className="flex gap-3 text-[14px] text-gray-600 leading-relaxed">
+                          <span className="text-gray-300 flex-shrink-0 mt-0.5 select-none">—</span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        </FadeUp>
+
+        <Divider />
+
         {/* ── Skills ── */}
         <FadeUp delay={100}>
           <section>
@@ -284,13 +283,13 @@ export function Work() {
             <SectionLabel>{wc.sections.education}</SectionLabel>
             <div className="space-y-4">
               {c.education.map((edu, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5"
-                >
+                <div key={i} className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-0.5">
                   <div>
                     <span className="font-medium text-[14px] text-gray-900">{edu.degree}</span>
                     <span className="text-[13px] text-gray-400 ml-2">· {edu.school}</span>
+                    {edu.notes && (
+                      <p className="text-[12px] text-gray-400 mt-0.5">{edu.notes}</p>
+                    )}
                   </div>
                   <span className="text-[12px] text-gray-400 sm:flex-shrink-0">{edu.dates}</span>
                 </div>

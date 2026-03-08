@@ -82,7 +82,7 @@ export interface AdhdCaseContent {
 export interface SiteContent {
   name: string;
   role: string;
-  availability: string;
+  availability?: string;
   nav: {
     langToggleEn: string;
     langToggleZh: string;
@@ -130,7 +130,6 @@ export const content: Record<Lang, SiteContent> = {
   en: {
     name: 'Jingcheng Shao (Amber)',
     role: 'AI Product / PM Intern',
-    availability: 'Available · 4+ days/week · CN-time overlap',
     nav: {
       langToggleEn: '中文',
       langToggleZh: 'English',
@@ -161,8 +160,8 @@ export const content: Record<Lang, SiteContent> = {
         location: 'Remote',
         dates: 'Jul 2025 – Sep 2025',
         bullets: [
-          'Designed and shipped a 3-stage AI valuation pipeline for dental clinic M&A—from data ingestion to one-click report to grounded chatbot Q&A.',
-          'Owned the full product arc: problem framing, UX flows, data transformation layer, RAG integration, and frontend.',
+          'Designed and shipped a 3-stage AI valuation workflow for dental clinic M&A: data ingestion, one-click report generation, and grounded chatbot Q&A.',
+          'Owned PM + UX + AI application integration across problem framing, flows, data transformation, RAG, and frontend.',
           'Reduced analyst report-prep time from ~2 days to under 10 minutes per clinic.',
         ],
       },
@@ -173,18 +172,18 @@ export const content: Record<Lang, SiteContent> = {
         dates: 'Jun 2025 – Jul 2025',
         bullets: [
           'Built dashboards tracking appliance sales and after-sales KPIs across 300+ SKUs using SQL and Tableau.',
-          'Identified a regional warranty-claim spike tied to a single supplier batch; findings fed into a supplier review that reduced returns by 18%.',
+          'Identified a regional warranty-claim spike tied to a supplier batch; findings informed a supplier review that reduced returns by 18%.',
         ],
       },
       {
         role: 'Research Analyst',
-        company: 'Icahn School of Medicine at Mount Sinai',
-        location: 'New York, NY',
+        company: 'Mount Sinai Health System',
+        location: 'Toronto, Canada',
         dates: 'May 2022 – Aug 2024',
         bullets: [
-          'Analyzed EHR-linked genomic datasets (N > 50,000) to study genetic risk factors for cardiovascular outcomes.',
-          'Automated a QC pipeline in R that cut data-cleaning time by 40%, enabling faster iteration on GWAS models.',
-          'Co-authored a conference abstract presented at AHA 2023.',
+          'Analyzed EHR-linked and high-dimensional healthcare datasets using SQL, R, and statistical modeling.',
+          'Automated QC and analysis workflows to support faster iteration on longitudinal and predictive models.',
+          'Contributed to research outputs and clearer data-to-insight communication.',
         ],
       },
     ],
@@ -195,14 +194,15 @@ export const content: Record<Lang, SiteContent> = {
     ],
     education: [
       {
-        degree: 'M.S. Biostatistics',
+        degree: 'M.S. in Biostatistics',
         school: 'UC San Diego',
-        dates: '2023 – 2025 (Expected)',
+        dates: 'Sep 2024 – Jun 2026 (Expected)',
       },
       {
-        degree: '[Your Bachelor\'s Degree]',
-        school: '[Your University]',
-        dates: '[Dates]',
+        degree: 'Honors B.S. in Statistics & Mathematics',
+        school: 'University of Toronto',
+        dates: 'Sep 2020 – Jun 2024',
+        notes: 'Minor in Computer Science',
       },
     ],
     contact: {
@@ -488,7 +488,6 @@ export const content: Record<Lang, SiteContent> = {
   zh: {
     name: '邵竞澄 (Amber)',
     role: 'AI 产品 / PM 实习生',
-    availability: '可接受实习 · 每周 4+ 天 · 支持中国时区',
     nav: {
       langToggleEn: '中文',
       langToggleZh: 'English',
@@ -519,30 +518,30 @@ export const content: Record<Lang, SiteContent> = {
         location: '远程',
         dates: '2025年7月 – 2025年9月',
         bullets: [
-          '以 PM + 工程师身份，设计并交付了面向牙科诊所并购的三段式 AI 估值 pipeline——从数据接入、一键报告到有依据的 Chatbot 追问。',
-          '负责完整产品链路：问题定义、UX 流程、数据转换层、RAG 集成与前端实现。',
-          '将分析师单份报告准备时间从约 2 天压缩至 10 分钟以内。',
+          '设计并落地了面向牙科诊所并购估值的三阶段 AI 工作流：数据接入、一键生成报告、基于报告的问答系统。',
+          '负责从问题定义、产品流程、数据转换层、RAG 集成到前端体验的完整 PM + UX + AI 应用实现。',
+          '将分析师单个诊所的报告准备时间从约 2 天缩短到 10 分钟以内。',
         ],
       },
       {
         role: '数据分析实习生',
-        company: '海尔集团',
-        location: '青岛',
+        company: '海尔',
+        location: '中国青岛',
         dates: '2025年6月 – 2025年7月',
         bullets: [
-          '使用 SQL 和 Tableau 搭建仪表盘，追踪 300+ SKU 的家电销售及售后 KPI。',
-          '定位到某区域保修索赔激增与单一供应商批次相关；分析结论推动供应商复审，退货率下降 18%。',
+          '使用 SQL 和 Tableau 搭建覆盖 300+ SKU 的家电销售与售后 KPI 看板。',
+          '识别出某地区保修索赔异常与特定供应商批次相关，结论进入供应商复盘并帮助退货率下降 18%。',
         ],
       },
       {
-        role: '研究分析师',
-        company: '西奈山伊坎医学院',
-        location: '纽约',
+        role: '研究分析员',
+        company: 'Mount Sinai Health System',
+        location: '加拿大多伦多',
         dates: '2022年5月 – 2024年8月',
         bullets: [
-          '分析 EHR 关联基因组数据集（N > 50,000），研究心血管结局的遗传风险因素。',
-          '用 R 自动化 QC pipeline，数据清洗时间缩短 40%，加速 GWAS 模型迭代。',
-          '合著会议摘要，于 AHA 2023 年会报告。',
+          '使用 SQL、R 与统计建模分析 EHR 关联的高维健康数据。',
+          '自动化 QC 与分析流程，加快纵向分析与预测模型的迭代速度。',
+          '参与研究产出，并提升从数据到洞察的表达与沟通效率。',
         ],
       },
     ],
@@ -553,14 +552,15 @@ export const content: Record<Lang, SiteContent> = {
     ],
     education: [
       {
-        degree: '生物统计硕士（M.S. Biostatistics）',
+        degree: '生物统计学硕士',
         school: '加州大学圣地亚哥分校（UCSD）',
-        dates: '2023 – 2025（预计）',
+        dates: '2024年9月 – 2026年6月（预计）',
       },
       {
-        degree: '[本科学位]',
-        school: '[学校]',
-        dates: '[日期]',
+        degree: '统计学与数学荣誉理学学士',
+        school: '多伦多大学',
+        dates: '2020年9月 – 2024年6月',
+        notes: '计算机科学辅修',
       },
     ],
     contact: {
